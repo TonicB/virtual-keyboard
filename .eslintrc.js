@@ -37,5 +37,7 @@ module.exports = {
     'no-lonely-if': 0,
     'import/prefer-default-export': 0,
     'import/no-cycle': 0,
+    'no-nested-ternary': 0,
+    'object-curly-newline': 0,
   },
 };

@@ -1,10 +1,40 @@
+import { DIGITS, FN_KEYS, MIX_KEYS, NOT_LETTERS } from './_keysArray'
+
 export class Button {
-  constructor(en, ru, keyCode) {
-    this.class = `row__button-${en}`
-    this.en = en
-    this.enUpper = /[a-z]/.test(this.en) && this.en.length === 1 ? this.en.toUpperCase() : this.en
-    this.ru = ru
-    this.ruUpper = /[а-я]|ё/.test(this.ru) ? this.ru.toUpperCase() : this.ru
-    this.keyCode = keyCode
+  constructor(en, ru, code, shiftEn, shiftRu) {
+    this.en = {
+      lower: {
+        shiftOff: en,
+        shiftOn: FN_KEYS.includes(code)
+          ? en
+          : shiftEn
+      },
+      upper: {
+        shiftOff: FN_KEYS.includes(code)
+          ? en
+          : en.toUpperCase(),
+        shiftOn: DIGITS.includes(code) || MIX_KEYS.includes(code) || NOT_LETTERS.includes(code)
+          ? shiftEn
+          : en
+      }
+    }
+    this.ru = {
+      lower: {
+        shiftOff: ru,
+        shiftOn: FN_KEYS.includes(code)
+          ? ru
+          : DIGITS.includes(code) || NOT_LETTERS.includes(code)
+            ? shiftRu
+            : ru.toUpperCase()
+      },
+      upper: {
+        shiftOff: FN_KEYS.includes(code)
+          ? ru
+          : ru.toUpperCase(),
+        shiftOn: DIGITS.includes(code) || NOT_LETTERS.includes(code)
+          ? shiftRu
+          : ru
+      }
+    }
   }
 }
