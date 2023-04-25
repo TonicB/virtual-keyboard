@@ -9,6 +9,7 @@ export function setKeys() {
     x.forEach((y, ind) => {
       const el = document.createElement('button')
       el.id = KEY_CODES[i][ind]
+      el.classList.add(KEY_CODES[i][ind].toLowerCase())
       el.innerHTML = y[STATE.lang][STATE.capsLock][STATE.shift]
       keyRowArr[i].appendChild(el)
     })

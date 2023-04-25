@@ -16,9 +16,10 @@ export const keyRowArr = [
   document.createElement('div'),
   document.createElement('div')
 ]
+keyRowArr.map((x) => x.classList.add('key-row'))
 export function createDOM() {
-  TEXT_AREA.setAttribute('cols', '100')
-  TEXT_AREA.setAttribute('rows', '10')
+  TEXT_AREA.setAttribute('cols', '45')
+  TEXT_AREA.setAttribute('rows', '15')
   TEXT_AREA.id = 'textarea'
   BODY.classList.add('body')
   HEADER.classList.add('header')
