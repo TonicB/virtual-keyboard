@@ -31,8 +31,11 @@ background-size: cover;
 }
 
 .text-area .wrapper {
-  /* background-image: url(./assets/img/olsdpapnew.png); */
-  /* background-size: cover; */
+  margin: auto;
+  width: 600px;
+  height: 94%;
+  background-image: url(./assets/img/oldpapperlast.png);
+  background-size: cover;
   
 }
 
@@ -60,18 +63,25 @@ background-size: cover;
 }
 
 button {
-  border-radius: 20px;
+  font-size: 20px;
+  border-radius: 25px;
   font-family: "DS", sans-serif;
-  height: 30px;
-  min-width: 30px;
+  height: 50px;
+  min-width: 50px;
   margin-right: 5px;
   background-image: url(./assets/img/btn_background.jpg);
   background-size: cover;
 }
 
-.space {
-  min-width: 150px;
+.paper-retro {
+  background-image: url(./assets/img/paper-retro.png);
 }
 
-.digit1 {
+button:hover {
+  background-image: url(./assets/img/paper-retro.png);
+  cursor: pointer;
+}
+
+.space {
+  min-width: 250px;
 }

@@ -1,10 +1,16 @@
 import { setKeys } from './_setKeys';
 import { STATE } from './_state';
 
-export function shiftSwitchByClick() {
-  STATE.shift === 'shiftOff'
-    ? STATE.shift = 'shiftOn'
-    : STATE.shift = 'shiftOff'
+export function shiftLeftSwitchByClick() {
+  STATE.shiftLeft === false
+    ? STATE.shiftLeft = true
+    : STATE.shiftLeft = false
   setKeys()
-  console.log(STATE.shift)
+}
+
+export function shiftRightSwitchByClick() {
+  STATE.shiftRight === false
+    ? STATE.shiftRight = true
+    : STATE.shiftRight = false
+  setKeys()
 }

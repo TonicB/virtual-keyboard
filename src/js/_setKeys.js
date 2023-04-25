@@ -10,8 +10,21 @@ export function setKeys() {
       const el = document.createElement('button')
       el.id = KEY_CODES[i][ind]
       el.classList.add(KEY_CODES[i][ind].toLowerCase())
-      el.innerHTML = y[STATE.lang][STATE.capsLock][STATE.shift]
+      el.innerHTML = y[STATE.lang][STATE.capsLock][STATE.shift()]
       keyRowArr[i].appendChild(el)
     })
   })
+  STATE.capsLock === 'upper'
+    ? document.querySelector('.capslock').classList.add('paper-retro')
+    : document.querySelector('.capslock').classList.remove('paper-retro')
+  if (STATE.shiftLeft === true) {
+    document.querySelector('.shiftleft').classList.add('paper-retro')
+  } else {
+    document.querySelector('.shiftleft').classList.remove('paper-retro')
+  }
+  if (STATE.shiftRight === true) {
+    document.querySelector('.shiftright').classList.add('paper-retro')
+  } else {
+    document.querySelector('.shiftright').classList.remove('paper-retro')
+  }
 }

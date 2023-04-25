@@ -16,7 +16,7 @@ export function pressButton(code) {
     } else if (code === 'Enter') {
       newValue = enter(oldvalue)
       STATE.positionCursor++
-    } else if (code === 'Backspace') {
+    } else if (code === 'Backspace' && TEXT_AREA.selectionStart !== 0) {
       newValue = backSpace(oldvalue)
       STATE.positionCursor--
     } else {
@@ -26,7 +26,7 @@ export function pressButton(code) {
     newValue = insertSymbol(oldvalue, '    ')
     STATE.positionCursor += 4
   } else {
-    newValue = insertSymbol(oldvalue, ALL_KEY_OBJS[code][STATE.lang][STATE.capsLock][STATE.shift])
+    newValue = insertSymbol(oldvalue, ALL_KEY_OBJS[code][STATE.lang][STATE.capsLock][STATE.shift()])
     STATE.positionCursor++
   }
   TEXT_AREA.value = newValue

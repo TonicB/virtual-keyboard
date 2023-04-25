@@ -4,7 +4,7 @@ import { setKeys } from './js/_setKeys'
 import { STATE } from './js/_state'
 import { createDOM } from './js/_createDOM'
 import { pressButton } from './js/_pressButton'
-import { shiftSwitchByClick } from './js/_shiftSwitchByClick'
+import { shiftLeftSwitchByClick, shiftRightSwitchByClick } from './js/_shiftSwitchByClick'
 import { altSwitchByClick } from './js/_altSwitchByClick'
 import { ctrlSwitchByClick } from './js/_ctrlSwitchByClick'
 
@@ -22,19 +22,29 @@ document.addEventListener('keydown', (e) => {
 // Набор текста мышью
 window.addEventListener('click', (e) => {
   if (e.target.tagName === 'BUTTON') {
-    e.target.id === 'ShiftLeft' || e.target.id === 'ShiftRight'
-      ? shiftSwitchByClick()
-      : e.target.id === 'AltLeft' || e.target.id === 'AltRight'
-        ? altSwitchByClick()
-        : e.target.id === 'ControlLeft' || e.target.id === 'ControlRight'
-          ? ctrlSwitchByClick()
-          : pressButton(e.target.id)
+    if (e.target.id === 'CapsLock') {
+      STATE.capsLock === 'upper' ? STATE.capsLock = 'lower' : STATE.capsLock = 'upper'
+      setKeys()
+    } else {
+      e.target.id === 'ShiftLeft'
+        ? shiftLeftSwitchByClick()
+        : e.target.id === 'ShiftRight'
+          ? shiftRightSwitchByClick()
+          : e.target.id === 'AltLeft' || e.target.id === 'AltRight'
+            ? altSwitchByClick()
+            : e.target.id === 'ControlLeft' || e.target.id === 'ControlRight'
+              ? ctrlSwitchByClick()
+              : pressButton(e.target.id)
+    }
   }
 })
 
 document.addEventListener('keydown', (e) => {
-  if ((e.code === 'ShiftLeft') || (e.code === 'ShiftRight')) {
-    STATE.shift = 'shiftOn'
+  if (e.code === 'ShiftLeft') {
+    STATE.shiftLeft = true
+    setKeys()
+  } else if (e.code === 'ShiftRight') {
+    STATE.shiftRight = true
     setKeys()
   } else if (e.code === 'CapsLock') {
     STATE.capsLock === 'upper' ? STATE.capsLock = 'lower' : STATE.capsLock = 'upper'
@@ -48,9 +58,32 @@ document.addEventListener('keydown', (e) => {
     setKeys()
   }
 })
-document.addEventListener('keyup', (e) => {
-  if ((e.code === 'ShiftLeft') || (e.code === 'ShiftRight')) {
-    STATE.shift = 'shiftOff'
+
+document.addEventListener('keydown', (e) => {
+  if (e.ctrlKey && (e.altKey)) {
+    STATE.lang === 'en' ? STATE.lang = 'ru' : STATE.lang = 'en'
     setKeys()
+  }
+})
+
+document.addEventListener('keyup', (e) => {
+  if (e.code === 'ShiftLeft') {
+    STATE.shiftLeft = false
+    setKeys()
+  } else if (e.code === 'ShiftRight') {
+    STATE.shiftRight = false
+    setKeys()
+  }
+})
+
+document.addEventListener('keydown', (e) => {
+  if (e.code !== 'CapsLock') {
+    document.querySelector(`.${e.code.toLowerCase()}`).classList.add('paper-retro')
+  }
+})
+
+document.addEventListener('keyup', (e) => {
+  if (e.code !== 'CapsLock') {
+    document.querySelector(`.${e.code.toLowerCase()}`).classList.remove('paper-retro')
   }
 })
