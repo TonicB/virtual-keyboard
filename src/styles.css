@@ -1,0 +1,87 @@
+@font-face {
+  font-family: "B52"; 
+  src: url("./assets/fonts/B52.ttf") format("truetype"); 
+  font-style: normal; 
+  font-weight: normal; 
+  } 
+
+  @font-face {
+    font-family: "DS"; 
+    src: url("./assets/fonts/ds_moster.ttf") format("truetype"); 
+    font-style: normal; 
+    font-weight: normal; 
+    } 
+  
+.body {
+background-image: url(./assets/img/table.jpg);
+background-size: cover;
+}
+
+.header__title {
+  font-family: "DS", sans-serif;
+  text-align: center;
+}
+
+.wrapper {
+  display: flex;
+}
+
+.text-area {
+  padding-bottom: 20px;
+}
+
+.text-area .wrapper {
+  margin: auto;
+  width: 600px;
+  height: 94%;
+  background-image: url(./assets/img/oldpapperlast.png);
+  background-size: cover;
+  
+}
+
+.text-area__text-area {
+  background: transparent;
+  background-size: cover;
+  padding: 50px 50px;
+  margin: auto;
+  font-family: "DS", sans-serif;
+  font-size: 20px;
+  border: 0;
+  outline:none;
+  resize: none;
+}
+
+
+.key-container {
+  margin: auto;
+}
+
+.key-row {
+  display: flex;
+  justify-content: center;
+  padding: 3px 0;
+}
+
+button {
+  font-size: 20px;
+  border-radius: 20px;
+  font-family: "DS", sans-serif;
+  height: 40px;
+  min-width: 40px;
+  margin-right: 5px;
+  background-image: url(./assets/img/btn_background.jpg);
+  background-size: cover;
+}
+
+.paper-retro {
+  background-image: url(./assets/img/paper-retro.png);
+}
+
+button:hover {
+  background-image: url(./assets/img/paper-retro.png);
+  cursor: pointer;
+}
+
+.space {
+  min-width: 250px;
+}
