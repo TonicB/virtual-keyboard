@@ -71,6 +71,7 @@ button {
   margin-right: 5px;
   background-image: url(./assets/img/btn_background.jpg);
   background-size: cover;
+  outline: none;
 }
 
 .paper-retro {
@@ -83,5 +84,5 @@ button:hover {
 }
 
 .space {
-  min-width: 250px;
+  min-width: 133px;
 }

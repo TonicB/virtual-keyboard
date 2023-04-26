@@ -2,12 +2,16 @@ import './styles.css';
 import { ALL_KEY_OBJS } from './js/_keysArray'
 import { changeKeys, setKeys } from './js/_setKeys'
 import { STATE } from './js/_state'
-import { createDOM } from './js/_createDOM'
+import { TEXT_AREA, createDOM } from './js/_createDOM'
 import { pressButton } from './js/_pressButton'
 import { shiftLeftSwitchByClick, shiftRightSwitchByClick } from './js/_shiftSwitchByClick'
 import { altSwitchByClick } from './js/_altSwitchByClick'
 import { ctrlSwitchByClick } from './js/_ctrlSwitchByClick'
 import { enterSound, playSound, pressSound } from './js/_soundClick';
+
+if (localStorage.getItem('capsLock')) {
+  STATE.capsLock = localStorage.getItem('capsLock')
+}
 
 createDOM()
 setKeys()
@@ -25,11 +29,11 @@ document.addEventListener('keydown', (e) => {
   // }
   e.preventDefault();
   pressButton(e.code)
-  console.log(e)
 })
 
 // Набор текста мышью
 window.addEventListener('click', (e) => {
+  console.log(TEXT_AREA.selectionStart)
   if (e.target.tagName === 'BUTTON') {
     if (e.target.id === 'CapsLock') {
       STATE.capsLock === 'upper' ? STATE.capsLock = 'lower' : STATE.capsLock = 'upper'
@@ -101,3 +105,7 @@ document.addEventListener('keyup', (e) => {
     document.querySelector(`.${e.code.toLowerCase()}`).classList.remove('paper-retro')
   }
 })
+
+window.onbeforeunload = () => {
+  localStorage.setItem('capsLock', STATE.capsLock)
+}

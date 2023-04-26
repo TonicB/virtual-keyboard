@@ -15,6 +15,14 @@ export function setKeys() {
       BUTTONS_ELS_ARRAY[i].push(el)
     })
   })
+}
+
+export function changeKeys() {
+  ALL_KEYS.forEach((x, i) => {
+    x.forEach((y, ind) => {
+      BUTTONS_ELS_ARRAY[i][ind].innerHTML = y[STATE.lang][STATE.capsLock][STATE.shift()]
+    })
+  })
   STATE.capsLock === 'upper'
     ? document.querySelector('.capslock').classList.add('paper-retro')
     : document.querySelector('.capslock').classList.remove('paper-retro')
@@ -32,12 +40,4 @@ export function setKeys() {
     document.querySelector('.altleft').classList.add('paper-retro')
     document.querySelector('.controlleft').classList.add('paper-retro')
   }
-}
-
-export function changeKeys() {
-  ALL_KEYS.forEach((x, i) => {
-    x.forEach((y, ind) => {
-      BUTTONS_ELS_ARRAY[i][ind].innerHTML = y[STATE.lang][STATE.capsLock][STATE.shift()]
-    })
-  })
 }
