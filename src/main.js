@@ -1,6 +1,6 @@
 import './styles.css';
 import { ALL_KEY_OBJS } from './js/_keysArray'
-import { setKeys } from './js/_setKeys'
+import { changeKeys, setKeys } from './js/_setKeys'
 import { STATE } from './js/_state'
 import { createDOM } from './js/_createDOM'
 import { pressButton } from './js/_pressButton'
@@ -11,20 +11,21 @@ import { enterSound, playSound, pressSound } from './js/_soundClick';
 
 createDOM()
 setKeys()
-enterSound()
-pressSound()
+// enterSound()
+// pressSound()
 
 console.log(ALL_KEY_OBJS)
 
 // Набор текста с клавиатуры
 document.addEventListener('keydown', (e) => {
-  if (e.code === 'Enter') {
-    playSound('enter')
-  } else {
-    playSound('press')
-  }
+  // if (e.code === 'Enter') {
+  //   playSound('enter')
+  // } else {
+  //   playSound('press')
+  // }
   e.preventDefault();
   pressButton(e.code)
+  console.log(e)
 })
 
 // Набор текста мышью
@@ -32,7 +33,7 @@ window.addEventListener('click', (e) => {
   if (e.target.tagName === 'BUTTON') {
     if (e.target.id === 'CapsLock') {
       STATE.capsLock === 'upper' ? STATE.capsLock = 'lower' : STATE.capsLock = 'upper'
-      setKeys()
+      changeKeys()
     } else {
       e.target.id === 'ShiftLeft'
         ? shiftLeftSwitchByClick()
@@ -50,41 +51,53 @@ window.addEventListener('click', (e) => {
 document.addEventListener('keydown', (e) => {
   if (e.code === 'ShiftLeft') {
     STATE.shiftLeft = true
-    setKeys()
+    changeKeys()
   } else if (e.code === 'ShiftRight') {
     STATE.shiftRight = true
-    setKeys()
+    changeKeys()
   } else if (e.code === 'CapsLock') {
     STATE.capsLock === 'upper' ? STATE.capsLock = 'lower' : STATE.capsLock = 'upper'
-    setKeys()
+    changeKeys()
+  } else if (e.code === 'ControlLeft') {
+    STATE.ctrl = true
+    console.log(STATE)
+  } else if (e.code === 'AltLeft') {
+    STATE.alt = true
+    console.log(STATE)
   }
 })
 
-document.addEventListener('keydown', (e) => {
-  if (e.ctrlKey && (e.altKey)) {
+document.addEventListener('keydown', () => {
+  if (STATE.ctrl && STATE.alt) {
     STATE.lang === 'en' ? STATE.lang = 'ru' : STATE.lang = 'en'
-    setKeys()
+    changeKeys()
   }
 })
 
 document.addEventListener('keyup', (e) => {
   if (e.code === 'ShiftLeft') {
     STATE.shiftLeft = false
-    setKeys()
+    changeKeys()
   } else if (e.code === 'ShiftRight') {
     STATE.shiftRight = false
-    setKeys()
+    changeKeys()
+  } else if (e.code === 'ControlLeft') {
+    STATE.ctrl = false
+    console.log(STATE)
+  } else if (e.code === 'AltLeft') {
+    STATE.alt = false
+    console.log(STATE)
   }
 })
 
 document.addEventListener('keydown', (e) => {
-  if (e.code !== 'CapsLock') {
-    document.querySelector(`.${e.code.toLowerCase()}`).classList.add('paper-retro')
-  }
+  document.querySelector(`.${e.code.toLowerCase()}`).classList.add('paper-retro')
 })
 
 document.addEventListener('keyup', (e) => {
   if (e.code !== 'CapsLock') {
+    document.querySelector(`.${e.code.toLowerCase()}`).classList.remove('paper-retro')
+  } else if (STATE.capsLock === 'lower') {
     document.querySelector(`.${e.code.toLowerCase()}`).classList.remove('paper-retro')
   }
 })
