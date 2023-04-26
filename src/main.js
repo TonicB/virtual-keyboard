@@ -7,14 +7,22 @@ import { pressButton } from './js/_pressButton'
 import { shiftLeftSwitchByClick, shiftRightSwitchByClick } from './js/_shiftSwitchByClick'
 import { altSwitchByClick } from './js/_altSwitchByClick'
 import { ctrlSwitchByClick } from './js/_ctrlSwitchByClick'
+import { enterSound, playSound, pressSound } from './js/_soundClick';
 
 createDOM()
 setKeys()
+enterSound()
+pressSound()
 
 console.log(ALL_KEY_OBJS)
 
 // Набор текста с клавиатуры
 document.addEventListener('keydown', (e) => {
+  if (e.code === 'Enter') {
+    playSound('enter')
+  } else {
+    playSound('press')
+  }
   e.preventDefault();
   pressButton(e.code)
 })
@@ -48,13 +56,6 @@ document.addEventListener('keydown', (e) => {
     setKeys()
   } else if (e.code === 'CapsLock') {
     STATE.capsLock === 'upper' ? STATE.capsLock = 'lower' : STATE.capsLock = 'upper'
-    setKeys()
-  }
-})
-
-document.addEventListener('keydown', (e) => {
-  if (e.ctrlKey && (e.altKey)) {
-    STATE.lang === 'en' ? STATE.lang = 'ru' : STATE.lang = 'en'
     setKeys()
   }
 })

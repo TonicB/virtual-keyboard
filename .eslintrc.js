@@ -39,5 +39,6 @@ module.exports = {
     'import/no-cycle': 0,
     'no-nested-ternary': 0,
     'object-curly-newline': 0,
+    'no-confusing-arrow': 0,
   },
 };
