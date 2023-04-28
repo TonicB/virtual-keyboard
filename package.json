@@ -41,6 +41,7 @@
     "fastest-levenshtein": "^1.0.16",
     "find-up": "^4.1.0",
     "function-bind": "^1.1.1",
+    "gh-pages": "^5.0.0",
     "glob-to-regexp": "^0.4.1",
     "graceful-fs": "^4.2.11",
     "has": "^1.0.3",
@@ -101,7 +102,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "npx webpack --mode production",
     "dev": "npx webpack serve --mode development",
-    "lint": ""
+    "lint": "",
+    "deploy": "gh-pages -d dist"
   },
   "author": "",
   "license": "ISC"
