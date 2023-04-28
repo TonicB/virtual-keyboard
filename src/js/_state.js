@@ -5,6 +5,6 @@ export const STATE = {
   shiftLeft: false,
   shiftRight: false,
   shift: () => !STATE.shiftLeft && !STATE.shiftRight ? 'shiftOff' : 'shiftOn',
-  alt: false,
-  ctrl: false
+  alt: 'altOff',
+  ctrl: 'ctrlOff'
 }

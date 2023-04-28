@@ -40,6 +40,5 @@ module.exports = {
     'no-nested-ternary': 0,
     'object-curly-newline': 0,
     'no-confusing-arrow': 0,
-    'linebreak-style': 0,
   },
 };
