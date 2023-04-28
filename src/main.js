@@ -39,6 +39,11 @@ document.querySelector('.filter').addEventListener('mouseup', () => {
 
   // Набор текста мышью
   window.addEventListener('click', (e) => {
+    if (e.target.id === 'Enter') {
+      playSound('enter')
+    } else {
+      playSound('press')
+    }
     if (e.target.tagName === 'BUTTON') {
       if (e.target.id === 'CapsLock') {
         STATE.capsLock === 'upper' ? STATE.capsLock = 'lower' : STATE.capsLock = 'upper'
