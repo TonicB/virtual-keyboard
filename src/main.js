@@ -1,14 +1,13 @@
 import './styles.css';
-import { ALL_KEY_OBJS } from './js/_keysArray'
 import { changeKeys, setKeys } from './js/_setKeys'
 import { STATE } from './js/_state'
-import { FILTER, TEXT_AREA, createDOM } from './js/_createDOM'
+import { FILTER, createDOM } from './js/_createDOM'
 import { pressButton } from './js/_pressButton'
 import { shiftLeftSwitchByClick, shiftRightSwitchByClick } from './js/_shiftSwitchByClick'
 import { altSwitchByClick } from './js/_altSwitchByClick'
 import { ctrlSwitchByClick } from './js/_ctrlSwitchByClick'
 import { enterSound, playSound, pressSound } from './js/_soundClick';
-import { timeRND, typingTitle } from './js/_typingTitle';
+import { typingTitle } from './js/_typingTitle';
 
 if (localStorage.getItem('capsLock')) {
   STATE.capsLock = localStorage.getItem('capsLock')
