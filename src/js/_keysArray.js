@@ -4,30 +4,31 @@ export const ALL_KEYS_EN = [
   [...'`1234567890-=', 'Backspace'],
   ['TAB', ...'qwertyuiop[]', '\\', 'Del'],
   ['Caps Lock', ...'asdfghjkl;\'', 'Enter'],
-  ['Shift', ...'zxcvbnm,./', '^', 'Shift'],
-  ['Ctrl', 'Win', 'Alt', ' ', 'Alt', 'Ctrl', '<', 'v', '>']
+  ['Shift', ...'zxcvbnm,./', '⇧', 'Shift'],
+  ['Ctrl', 'Win', 'Alt', ' ', 'Alt', 'Ctrl', '⇦', '⇩', '⇨']
 ]
 export const ALL_KEYS_RU = [
   [...'ё1234567890-=', 'Backspace'],
   ['TAB', ...'йцукенгшщзхъ', '\\', 'Del'],
   ['Caps Lock', ...'фывапролджэ', 'Enter'],
-  ['Shift', ...'ячсмитьбю.', '^', 'Shift'],
-  ['Ctrl', 'Win', 'Alt', ' ', 'Alt', 'Ctrl', '<', 'v', '>']
+  ['Shift', ...'ячсмитьбю.', '⇧', 'Shift'],
+  ['Ctrl', 'Win', 'Alt', ' ', 'Alt', 'Ctrl', '⇦', '⇩', '⇨']
 ]
 
 export const SHIFT_VALUES_EN = [
   [...'~!@#$%^&*()_+', 'Backspace'],
   ['TAB', ...'QWERTYUIOP{}|', 'DEL'],
   ['Caps Lock', ...'ASDFGHJKL:"', 'Enter'],
-  ['Shift', ...'ZXCVBNM<>?', '^', 'Shift'],
-  ['Ctrl', 'Win', 'Alt', ' ', 'Alt', 'Ctrl', '<', 'v', '>']
+  ['Shift', ...'ZXCVBNM<>?', '⇧', 'Shift'],
+  ['Ctrl', 'Win', 'Alt', ' ', 'Alt', 'Ctrl', '⇦', '⇩', '⇨']
 ]
+
 export const SHIFT_VALUES_RU = [
   [...'Ё!"№;%:?*()_+', 'Backspace'],
   ['TAB', ...'ЙЦУКЕНГШЩЗХЪ/', 'DEL'],
   ['Caps Lock', ...'ФЫВАПРОЛДЖЭ', 'Enter'],
-  ['Shift', ...'ЯЧСМИТЬБЮ,', '^', 'Shift'],
-  ['Ctrl', 'Win', 'Alt', ' ', 'Alt', 'Ctrl', '<', 'v', '>']
+  ['Shift', ...'ЯЧСМИТЬБЮ,', '⇧', 'Shift'],
+  ['Ctrl', 'Win', 'Alt', ' ', 'Alt', 'Ctrl', '⇦', '⇩', '⇨']
 ]
 
 export const KEY_CODES = [
