@@ -9,8 +9,8 @@ import { ctrlSwitchByClick } from './js/_ctrlSwitchByClick'
 import { enterSound, playSound, pressSound } from './js/_soundClick';
 import { typingTitle } from './js/_typingTitle';
 
-if (localStorage.getItem('capsLock')) {
-  STATE.capsLock = localStorage.getItem('capsLock')
+if (localStorage.getItem('lang')) {
+  STATE.lang = localStorage.getItem('lang')
 }
 
 createDOM()
@@ -117,6 +117,6 @@ document.querySelector('.filter').addEventListener('mouseup', () => {
   })
 
   window.onbeforeunload = () => {
-    localStorage.setItem('capsLock', STATE.capsLock)
+    localStorage.setItem('lang', STATE.lang)
   }
 })
